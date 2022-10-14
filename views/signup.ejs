@@ -1,0 +1,72 @@
+<%- include('partials/headerbl') %>
+<div class="container mt-5">
+  <h1 class="signupHeading">Register</h1>
+
+  <div class="row siginupFORM ">
+    <div class="col-lg-8">
+      <div class="card signupCARD bg-transparent">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/signup" method="POST">
+            <div class="form-group formINPUTS">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group formINPUTS">
+              <label for="Role">Role *</label>
+              <select id="role" name="role" class="form-control" required>
+                <option value="volvo">Click To Select Role </option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+              </select>
+              <!-- <input type="email" class="form-control" name=""> -->
+            </div>
+            <div class="form-group formINPUTS role" id="teacher" required>
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" class="form-control" required>
+                <option value="volvo">Click To Select Subject </option>
+                <option value="English">English</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Mathematics">Mathematics</option>
+              </select>
+              <!-- <input type="text" class="form-control " name="subject"> -->
+            </div>
+            <div class="form-group formINPUTS role" id="student" required>
+              <label for="roll-no">Roll No. *</label>
+              <input type="text" class="form-control " name="rollno">
+            </div>
+
+            <div class="form-group formINPUTS">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group formINPUTS">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit " class="btn btn-dark signupSUBMITbtn">Register</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 googleCOL">
+      <h5 class="googleCHOICE">OR SIGNUP WITH GOOGLE</h5>
+      <div class="card social-block bg-transparent googlesignupBTN">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign Up with Google
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<%- include('partials/footerbl') %>

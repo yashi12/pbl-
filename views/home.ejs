@@ -1,0 +1,66 @@
+<%-include('partials/header') %>
+<style media="screen">
+body{
+  background-size:cover;
+}
+</style>
+<h1 class="dasboardHeading ">Dashboard</h1>
+<div class="row subjectsROW bg-transparent">
+  <div class="col ">
+    <div class="card subjectCards" style="width: 22rem;">
+      <img class="subjectIMG" src="images/english.png" alt="">
+      <div class="card-body">
+        <h5 class="card-title">English</h5>
+                <form method="post" action="/subject">
+          <a href="./dashboard" class="card-link"><button type="submit" class="btn btn-primary btn btn-primary slide_left viewBTN" value="English" name="sub">View</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card subjectCards" style="width: 22rem;">
+      <img class="subjectIMG" src="images/compscience.png" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Computer Science</h5>
+        <form method="post" action="/subject">
+          <a href="./dashboard" class="card-link"><button type="submit" class="btn btn-primary slide_left viewBTN" value="Computer Science" name="sub">View</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col">
+    <div class="card subjectCards" style="width: 22rem; ">
+      <img class="subjectIMG" src="images/chem.png" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Chemistry</h5>
+        <form method="post" action="/subject">
+          <a href="./dashboard" class="card-link"><button type="submit" class="btn btn-primary slide_left viewBTN" value="Chemistry" name="sub">View</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card subjectCards" style="width: 22rem;">
+      <img class="subjectIMG" src="images/physics.png" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Physics</h5>
+        <form method="post" action="/subject">
+        <a href="./dashboard" class="card-link"><button type="submit" class="btn btn-primary slide_left viewBTN" value="Physics" name="sub">View</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card subjectCards" style="width: 22rem;">
+      <img class="subjectIMG" src="images/maths.png" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Mathematics</h5>
+        <form method="post" action="/subject">
+        <a href="./dashboard" class="card-link"><button type="submit" class="btn btn-primary slide_left viewBTN" value="Mathematics" name="sub">View</button></a>
+        </form>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<%- include('partials/footer') %>

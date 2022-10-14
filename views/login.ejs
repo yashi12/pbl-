@@ -1,0 +1,43 @@
+<%- include('partials/headerbl') %>
+
+<div class="login-container">
+  <h1 class="loginHeading">Login</h1>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card signupCARD bg-transparent">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-dark signupSUBMITbtn">Login</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 googleCOL">
+      <h5 class="googleCHOIC">OR LOGIN WITH GOOGLE</h5>
+      <div class="card social-block bg-transparent googlesignupBTN">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign In with Google
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footerbl') %>

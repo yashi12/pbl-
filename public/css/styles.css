@@ -1,0 +1,100 @@
+
+body {
+  background-color: #E8ECEF;
+  overflow-x: hidden;
+  background-image: url("../images/bgimg6.png");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+
+}
+
+/***********************************************NAVBAR**************************************************************************************************/
+
+.my_brand {
+  width: 19.5vw;
+  height: 6.5vw;
+}
+
+.navbg {
+  background:transparent;
+  padding: 1vw 1vw;
+}
+.nav-pad{
+  margin-right:0.5vw;
+}
+
+.dashboardNav{
+  background-color: #E8ECEf;
+}
+.subjectsROW{
+  background-color: #E8ECEF;
+  padding-top: 1vw;
+  text-align: center;
+}
+.subjectCards{
+  border-radius: 10%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 1.5vw;
+     box-shadow: 10px 10px 5px grey;
+  transition: all 0.3s ease-out;
+  margin-bottom: 2vw;
+}
+.dropBTN{
+  -webkit-transition: ease-out 0.4s;
+ -moz-transition: ease-out 0.4s;
+ transition: ease-out 0.4s;
+}
+.subjectCards:hover{
+  transform: translateY(-8px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11);
+
+  box-shadow: 10px 10px 5px grey;
+}
+.subjectIMG{
+  border-radius: 30px;
+  width: 100.5%;
+
+}
+.viewBTN{
+  -webkit-transition: ease-out 0.4s;
+ -moz-transition: ease-out 0.4s;
+ transition: ease-out 0.4s;
+}
+.slide_left:hover {
+  box-shadow: inset 0 0 0 50px #5C33F6;
+}
+
+.dasboardHeading{
+  font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;
+  color: #706bc1;
+  text-shadow: 5px 5px 2px #FFB830;
+}
+.utilities{
+  text-align: center;
+  padding: 3rem;
+}
+.AssigmentLIST{
+  width: 57%;
+  text-align: center;
+}
+.AssigmentButton{
+  width:60%;
+}
+.joinClass{
+  text-align: center;
+  padding-top: 2vw;
+}
+
+.form-control1{
+  width: 51.4vw;
+}
+.role{
+  display:none;
+}
+@media(max-width:991.98px){
+  body{
+      background-color: #E8ECEF;
+      background-image: none;
+  }
+}

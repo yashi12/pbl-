@@ -1,0 +1,12 @@
+1.express
+2.ejs
+3.body-parser
+4.mongoose
+5.express-session
+6.passport
+7.passport-local-mongoose
+8.passport-google-oauth20
+9.mongoose-findorcreate
+10.dotenv
+11.multer
+12.uuid

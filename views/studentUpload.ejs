@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<style media="screen">
+body{
+  background-size:cover;
+}
+</style>
+ <div class="assignments">
+   <h1 class="dasboardHeading">ADD ASSIGNMENTS</h1>
+ <form action="/upload_assign_student" method="post" enctype="multipart/form-data">
+   <div class="mb-3">
+     <label for="name1" class="form-label">Assignment Name</label>
+     <input type="text" class="form-control" name="Assignment_name" value="">
+  </div>
+   <div class="mb-3">
+     <label for="attachment1" class="form-label">Submission Date:</label>
+     <input type="file" class="form-control" name="file_upload" >
+   </div>
+   <center>
+   <button class="btn btn-primary">Submit</button>
+   </center>
+ </form>
+ </div>
+
+ <div class="assignments">
+   <h1 class="dasboardHeading">ADD TESTS</h1>
+ <form action="/upload_test_student" method="post" enctype="multipart/form-data">
+   <div class="mb-3">
+     <label for="name1" class="form-label">Test Name</label>
+     <input type="text" class="form-control" name="Assignment" >
+  </div>
+   <div class="mb-3">
+     <label for="attachment1" class="form-label">Upload Test</label>
+     <input type="file" class="form-control" name="avatar" >
+   </div>
+  <center>
+   <button class="btn btn-primary" >Submit</button>
+ </center>
+ </form>
+ </div>
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %>

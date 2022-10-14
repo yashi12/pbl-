@@ -1,0 +1,54 @@
+.siginupFORM{
+  margin-top: 2vw;
+
+}
+.signupCARD{
+  background-color: #C9CCD5;
+
+  border: none;
+}
+.formINPUTS{
+  padding-top: 0.5vw;
+}
+.signupSUBMITbtn{
+  margin-top: 1vw;
+
+  border: none;
+}
+.googleCOL{
+  padding-top: 0.5vw;
+  align-items: center;
+  text-align: center;
+  border-left-style: solid;
+  border-width: 2px;
+}
+.googlesignupBTN{
+    margin-top: 3vw;
+    border: none;
+}
+.googleCHOICE{
+  margin-top: 3vw;
+  font-family: 'Jura', sans-serif;
+  font-size: 1.2rem;
+}
+.signupHeading{
+  margin-top: 7vw;
+  /* font-family: 'Cabin', sans-serif; */
+  font-family: 'Jura', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  padding-left: 1vw;
+}
+.googleCHOIC{
+
+font-family: 'Jura', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.loginHeading{
+  margin-top: 7vw;
+  font-family: 'Jura', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  padding-left: 1vw;
+}

@@ -1,0 +1,48 @@
+<%-include('partials/header') %>
+
+
+<h1 class="dasboardHeading"><%= subject %></h1>
+
+<div class="dropdown utilities">
+  <button class="btn btn-secondary dropdown-toggle AssigmentButton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Assigments
+  </button>
+
+  <ul class="dropdown-menu AssigmentLIST" aria-labelledby="dropdownMenuButton1">
+    <% assignments.forEach(ass=> { %>
+        <li><a class="dropdown-item" href="upload/<%= ass.name %>" target="_blank"><%= ass.name %></a></li>
+     <% }) %>
+
+     <!-- C:\Users\Hp\Desktop\github\classroom\upload\8.gif -->
+
+    <!-- <li><a class="dropdown-item" href="#">Assigment 2</a></li>
+    <li><a class="dropdown-item" href="#">Assigment 3</a></li> -->
+  </ul>
+
+
+</div>
+
+<div class="dropdown utilities">
+  <button class="btn btn-secondary dropdown-toggle AssigmentButton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Tests
+  </button>
+
+  <ul class="dropdown-menu AssigmentLIST" aria-labelledby="dropdownMenuButton1">
+    <% tests.forEach(test=> { %>
+        <li><a class="dropdown-item" href="upload/<%= test.name %>" target="_blank"><%= test.name %></a></li>
+     <% }) %>
+    <!-- <li><a class="dropdown-item" href="#">Tests 1</a></li>
+    <li><a class="dropdown-item" href="#">Tests 2</a></li>
+    <li><a class="dropdown-item" href="#">Tests 3</a></li> -->
+  </ul>
+
+
+</div>
+
+<div class="joinClass">
+  <a href="https://meet.google.com/" target="_blank"><button type="button" class="btn btn-dark">Join Class</button></a>
+  
+  <a href="/studentUpload" class="card-link"><button type="button" class="btn btn-primary">Upload</button></a>
+</div>
+
+<%- include('partials/footer') %>
