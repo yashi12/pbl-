@@ -28,9 +28,30 @@
   </button>
 
   <ul class="dropdown-menu AssigmentLIST" aria-labelledby="dropdownMenuButton1">
-    <% tests.forEach(test=> { %>
-        <li><a class="dropdown-item" href="upload/<%= test.name %>" target="_blank"><%= test.name %></a></li>
-     <% }) %>
+    <!-- <% tests.forEach(test=> { %>
+        <li><a class="dropdown-item" href="upload/<%= test.name %>" target="_blank"><%= test.name %></a>
+          <a href="/studentUpload" class="card-link"><button value="<%= test._id %>" type="button" class="btn btn-primary">Upload</button></a>
+        </li>
+     <% }) %> -->
+     <% tests.forEach(test=> { %>
+      <li>
+        <!-- <a class="dropdown-item" href="upload/<%= test.name %>" target="_blank"><%= test.name %></a> -->
+        <form action="/upload_test_student" method="post" enctype="multipart/form-data">
+
+          <div class="mb-3">
+            <label for="attachment1" class="form-label"><%= test.name %></label>
+            <input type="file" class="form-control" name="avatar" >
+          </div>
+          <div>
+            <input type="text" name="test_id" value="<%= test._id %>" >
+          </div>
+         <center>
+          <button class="btn btn-primary">Submit</button>
+        </center>
+        </form>
+      </li>
+      
+   <% }) %>
     <!-- <li><a class="dropdown-item" href="#">Tests 1</a></li>
     <li><a class="dropdown-item" href="#">Tests 2</a></li>
     <li><a class="dropdown-item" href="#">Tests 3</a></li> -->

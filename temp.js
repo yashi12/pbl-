@@ -320,14 +320,18 @@ app.get("/home", function(req, res) {
         // { $push: { friends: objFriends  } },
         // {new: true, useFindAndModify: false})
         // ,{useFindAndModify: false}
-        console.log(req.file.filename);
-        console.log(req.user.id);
+        // console.log(req.file.filename);
+        // console.log(req.user.id);
   
-        console.log(req.user.stud.name);
+        // console.log(req.user.stud.name);
+        console.log("body");
+        console.log(req.body);
         const enroll  = req.user.stud.rollno;
+        // const subject = req.body.subject;
+
         // const update= { $push: {teacher:{subject: {assignments: req.file.filename}}} };
           // const update= {"teacher":{"subject":{$push: "assignments": req.file.filename} } };
-          const update= {$push:{"stud.assignments": {name: req.file.filename}} }
+          const update= {$push:{"stud.assignments": {name: req.file.filename }} }
           console.log(update);
            Student.findOneAndUpdate({_id: req.user.id},update,function(err){
              console.log(err);
@@ -356,8 +360,10 @@ app.get("/home", function(req, res) {
           // { $push: { friends: objFriends  } },
           // {new: true, useFindAndModify: false})
           // ,{useFindAndModify: false}
-          console.log(req.file.filename);
-          console.log(req.user.id);
+          // console.log(req.file.filename);
+          // console.log(req.user.id);
+          console.log("body");
+        console.log(req.body.test_id);
   
           console.log(req.user.teacher.subject.name);
   
@@ -366,7 +372,7 @@ app.get("/home", function(req, res) {
               Student.findOneAndUpdate({_id: req.user.id},update,function(err){
                 console.log(err);
               });
-              res.redirect("/studentUpload");
+              // res.redirect("/studentUpload");
             });
 
     app.post("/subject",function(req,res){
@@ -384,6 +390,19 @@ app.get("/home", function(req, res) {
     app.post("/teacher",function(req,res){
       var subject=req.body.sub;
       Student.findOne({name: req.body.tname, "teacher.subject.name": subject},function(err, ans){
+        if(err){
+          console.log(err);
+        }else{
+          res.render("dashboard",{subject:subject, assignments: ans.teacher.subject.assignments, tests: ans.teacher.subject.test , name:req.user.stud.name});
+          console.log(ans);
+        }
+      })
+    })
+
+    app.post("/student_report_subjectwise",function(req,res){
+      var subject=req.body.sub;
+      var studentName = req.body.sname;
+      Student.findOne({name: studentName, "stud.name": subject},function(err, ans){
         if(err){
           console.log(err);
         }else{
