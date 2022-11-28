@@ -77,10 +77,12 @@ const studentSchema = new mongoose.Schema({
       name: String,
       assignments: [{
         // type: String,
-        name: String
+        name: String,
+        submitted_id : [String]
       }],
       test: [{
-        name: String
+        name: String,
+        submitted_id :[String]
       }]
     }
   }
@@ -326,16 +328,21 @@ app.get("/home", function(req, res) {
         // console.log(req.user.stud.name);
         console.log("body");
         console.log(req.body);
-        const enroll  = req.user.stud.rollno;
+        const ass_id  = req.body.ass_id;
         // const subject = req.body.subject;
 
         // const update= { $push: {teacher:{subject: {assignments: req.file.filename}}} };
           // const update= {"teacher":{"subject":{$push: "assignments": req.file.filename} } };
-          const update= {$push:{"stud.assignments": {name: req.file.filename }} }
+          const update= {$push:{"stud.assignments": {name: req.file.filename ,assignment_id: ass_id}} }
           console.log(update);
            Student.findOneAndUpdate({_id: req.user.id},update,function(err){
              console.log(err);
-           });
+           })
+           .then((student)=>{
+            console.log(student);
+            // const update= {$push:{"teacher.subject.assignments": {submitted_id: student.}} }
+            // Student.findOneAndUpdate({})
+           })
             res.redirect("/studentUpload");
          });
 
@@ -363,25 +370,31 @@ app.get("/home", function(req, res) {
           // console.log(req.file.filename);
           // console.log(req.user.id);
           console.log("body");
-        console.log(req.body.test_id);
+        console.log(req.body.t_id);
+        const teacher_id = req.body.t_id;
+        const test_id  = req.body.test_id;
   
-          console.log(req.user.teacher.subject.name);
-  
+            // const update= {$push:{"stud.test": {name: req.file.filename, test_id: test_id}} }
             const update= {$push:{"stud.test": {name: req.file.filename}} }
-            console.log(update);
-              Student.findOneAndUpdate({_id: req.user.id},update,function(err){
-                console.log(err);
-              });
-              // res.redirect("/studentUpload");
+              Student.findOneAndUpdate({_id: req.user.id},update)
+              .then(newStudent=>{
+                console.log("new",newStudent);
+                const add_id= {$push:{"teacher.subject.test": {submitted_id:newStudent.name}} }
+                Student.findOneAndUpdate({_id: teacher_id,"teacher.subject.test":{$elemMatch:{_id:test_id}}},update).then(teacher=>{
+                    console.log("tracher",teacher);
+                })
+              })
+              res.redirect("/teachersdashboard");
             });
 
     app.post("/subject",function(req,res){
       var subject = req.body.sub;
       Student.find({"teacher.subject.name": subject},function(err, ans){
+        //console.log("ans", ans)
         if(err){
           console.log(err);
         }else{
-          res.render("selectteacher",{subject: subject, tnames: ans,name:req.user.stud.name});
+          res.render("selectteacher",{subject: subject, tnames: ans, name:req.user.stud.name});
         }
       })
 
@@ -389,11 +402,18 @@ app.get("/home", function(req, res) {
 
     app.post("/teacher",function(req,res){
       var subject=req.body.sub;
+      const tdata = typeof(req.body.tname);
+      console.log("tdata",tdata);
+      // var t_id = tdata.name;
+      // console.log("t_id", t_id )
+
       Student.findOne({name: req.body.tname, "teacher.subject.name": subject},function(err, ans){
         if(err){
           console.log(err);
         }else{
-          res.render("dashboard",{subject:subject, assignments: ans.teacher.subject.assignments, tests: ans.teacher.subject.test , name:req.user.stud.name});
+          console.log("ans",ans);
+          // res.render("dashboard",{subject:subject, assignments: ans.teacher.subject.assignments, tests: ans.teacher.subject.test , name:req.user.stud.name, t_id:t_id});
+          res.render("dashboard",{subject:subject, assignments: ans.teacher.subject.assignments, tests: ans.teacher.subject.test , name:req.user.stud.name, t_id: ans._id});
           console.log(ans);
         }
       })
